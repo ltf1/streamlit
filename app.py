@@ -59,6 +59,7 @@ df['ds'] = pd.to_datetime(df['ds'])
 
 # Call the plot_data function to create the plot
 plt.ylabel(selected_dataset)
+plt.suptitle("İzle Weekly Trends", fontsize=20)
 plot_data(df, selected_days, selected_dataset)
 
 

@@ -16,18 +16,18 @@ dayofweek_colors = {'Monday': 'blue', 'Tuesday': 'green', 'Wednesday': 'orange',
 # Plot that shows the historical data by day of the week
 def plot_data(df, selected_days, selected_dataset):
     plt.close()
-    fig, ax = plt.subplots(figsize=(12,4))
+    fig, ax = plt.subplots(figsize=(12,6))
     if selected_days:
         df_selected = df[df['ds'].dt.day_name().isin(selected_days)]
         for day in selected_days:
             df_day = df_selected[df_selected['ds'].dt.day_name() == day]
             ax.scatter(df_day['ds'], df_day['y'], c=dayofweek_colors[day], label=day)
         ax.legend()
-    else:
-        ax.scatter(df['ds'], df['y'], c=df['ds'].dt.dayofweek.map(dayofweek_colors))
-        handles = [mpatches.Patch(color=v, label=k) for v, k in zip(dayofweek_colors.values(), dayofweek_colors.keys())]
-        legend = ax.legend(handles=handles, bbox_to_anchor=(1, 0.5), title="Day of the week")
-        ax.add_artist(legend)
+    #else:
+    #    ax.scatter(df['ds'], df['y'], c=df['ds'].dt.dayofweek.map(dayofweek_colors))
+    #    handles = [mpatches.Patch(color=v, label=k) for v, k in zip(dayofweek_colors.values(), dayofweek_colors.keys())]
+    #    legend = ax.legend(handles=handles, bbox_to_anchor=(1, 0.5), title="Day of the week")
+    #    ax.add_artist(legend)
     plt.xlabel('Date')
     plt.ylabel(selected_dataset)
     plt.title(f"{selected_dataset} by day of the week")

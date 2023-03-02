@@ -31,9 +31,10 @@ def plot_data(df, selected_days, selected_dataset):
     plt.xlabel('Date')
     plt.ylabel(selected_dataset)
     plt.title(f"{selected_dataset} by day of the week")
+    #plt.suptitle("İzle Weekly Trends", fontsize=20)
     st.pyplot(fig)
 
-# Load your data into a pandas DataFrame
+st.title("İzle Weekly Trends")
 
 # Create a multi-select widget to allow the user to select which days to plot
 selected_days = st.multiselect('Select days to plot', list(dayofweek_colors.keys()), default=list(dayofweek_colors.keys()), key="dasdas")
@@ -59,7 +60,8 @@ df['ds'] = pd.to_datetime(df['ds'])
 
 # Call the plot_data function to create the plot
 plt.ylabel(selected_dataset)
-plt.suptitle("İzle Weekly Trends", fontsize=20)
+# Add title for section
+
 plot_data(df, selected_days, selected_dataset)
 
 

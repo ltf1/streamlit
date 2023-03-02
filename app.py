@@ -1,5 +1,5 @@
-!pip install streamlit
-!pip install seaborn
+#!pip install streamlit
+#!pip install seaborn
 import streamlit as st
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
